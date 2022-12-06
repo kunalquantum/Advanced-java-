@@ -1,0 +1,74 @@
+import java.lang.annotation.*;
+import java.util.Scanner;
+import java.util.*;
+import java.lang.annotation.Target;
+//MAKER ANNOATATION//
+//SINGLE VALUE ANNOTATION//
+//MULTI  VALUE ANNOTATION//
+
+@Target(ElementType.TYPE)
+@Retention(RetentionPolicy.RUNTIME)
+
+@marker()
+//use of marker annotation//
+class apple
+{
+
+}
+//use of single value annotation//
+@Smartphone(os="OS")
+class nokia
+{
+    //use of single value annotation//
+    String model_name;
+    public nokia(String model_name) //constructor (patameterized)//
+    {
+        super(); //making the class super//
+        this.model_name=model_name;
+    }
+
+
+}
+
+
+@features(ram = 67,graphic_card = "yukta")
+class samsung
+{
+
+}
+
+//single value annotation creation//
+@interface Smartphone
+{
+    String os() default "android";
+}
+//empty annotation is called marker annotation creation //
+@interface marker
+    {
+    }
+//multivalue annotation creation//
+@interface features
+{
+    int ram() default 12;
+    int rom() default 45;
+    String graphic_card() default "ultra";
+}
+//making the main class for the execution//
+public class annote1{
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("enter the model name :");
+        String a=sc.nextLine();
+
+
+        //object creation//
+     nokia obj=new nokia(a);
+     Class c =obj.getClass();//we are using an reflection api//
+        Annotation an=c.getAnnotation(Smartphone.class);
+        Smartphone s = (Smartphone) an;
+        System.out.println(s.os());
+
+
+    }
+}
+
