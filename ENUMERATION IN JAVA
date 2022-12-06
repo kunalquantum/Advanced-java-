@@ -1,0 +1,27 @@
+WHAT IS ENUM?
+    creating the range of the constant we will use the enumeration
+but the forst version of the java does not contained the enumeration feature
+that time we would be using  the static keyword that wooud assign the  constant number to the particular data ,
+but there was an ambiguity in identifying and detecting the difference betweeen the string ang integer as they both are initially
+assumed as the same
+
+
+
+syntax for enumeration or enum
+    enum(keyword) name of enum (class)
+    {
+        //names of constant//
+        basketball,football,cricket;(semi colon is not compulsory)
+
+
+    }
+public class enumeration
+{
+    public static void main(String args[])
+        {
+            System.out.println(enum.basketball);
+        }
+}
+note: we can define the enum class inside the class as well
+but not in the method (any method)
+
